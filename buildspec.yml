@@ -1,12 +1,13 @@
 version: 0.2
 
 phases:
-   pre_build:
+  pre_build:
     commands:
       - echo Logging in to DockerHub to avoid rate limits...
       - DOCKERHUB_USERNAME=$(aws secretsmanager get-secret-value --secret-id dockerhub-credentials --query SecretString --output text | jq -r .username)
       - DOCKERHUB_PASSWORD=$(aws secretsmanager get-secret-value --secret-id dockerhub-credentials --query SecretString --output text | jq -r .password)
       - echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      - IMAGE_URI=498484133733.dkr.ecr.us-east-1.amazonaws.com/sample-app-ecr:$CODEBUILD_RESOLVED_SOURCE_VERSION
 
   build:
     commands:
