@@ -1,0 +1,6 @@
+[
+  {
+    "name": "DeployToEcsFargateContainerName",
+    "imageUri": "498484133733.dkr.ecr.us-east-1.amazonaws.com/sample-app-ecr:latest"
+  }
+]
