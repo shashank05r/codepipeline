@@ -21,4 +21,5 @@ phases:
 
 artifacts:
   files:
+    - appspec.yaml              # ✅ This is required
     - imagedefinitions.json
