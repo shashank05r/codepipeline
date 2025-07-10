@@ -1,0 +1,13 @@
+[
+  {
+    "name": "sample-app-ecr",
+    "imageUri": "",
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "protocol": "tcp"
+      }
+    ]
+  }
+]
