@@ -1,9 +1,9 @@
 version: 0.0
 Resources:
-  - TargetService:
-      Type: AWS::ECS::Service
-      Properties:
-        TaskDefinition: taskdef.json
-        LoadBalancerInfo:
-          ContainerName: sample-app-ecr
-          ContainerPort: 80
+  TargetService:
+    Type: AWS::ECS::Service
+    Properties:
+      TaskDefinition: arn:aws:ecs:us-east-1:498484133733:task-definition/sample-app-ecr:1
+      LoadBalancerInfo:
+        ContainerName: sample-app-ecr
+        ContainerPort: 80
