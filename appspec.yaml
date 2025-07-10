@@ -6,4 +6,4 @@ Resources:
         TaskDefinition: ""
         LoadBalancerInfo:
           ContainerName: "sample-app"
-          ContainerPort: 80
+          ContainerPort: 80  # or 80, depending on your app
