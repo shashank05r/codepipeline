@@ -12,12 +12,15 @@ phases:
       - echo Building Docker image...
       - docker build -t $IMAGE_URI .
 
-  post_build:
-    commands:
-      - echo Pushing Docker image...
-      - docker push $IMAGE_URI
-      - echo Writing imagedefinitions.json...
-      - printf '[{"name":"sample-app","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
+ post_build:
+  commands:
+    - echo Pushing Docker image...
+    - docker push $IMAGE_URI
+    - docker tag $IMAGE_URI 498484133733.dkr.ecr.us-east-1.amazonaws.com/sample-app-ecr:latest
+    - docker push 498484133733.dkr.ecr.us-east-1.amazonaws.com/sample-app-ecr:latest
+    - echo Writing imagedefinitions.json...
+    - printf '[{"name":"sample-app","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
+
 
 artifacts:
   files:
