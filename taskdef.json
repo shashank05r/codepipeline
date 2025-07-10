@@ -1,13 +1,21 @@
-[
-  {
-    "name": "sample-app-ecr",
-    "imageUri": "",
-    "essential": true,
-    "portMappings": [
-      {
-        "containerPort": 80,
-        "protocol": "tcp"
-      }
-    ]
-  }
-]
+{
+  "family": "sample-app-task",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::498484133733:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "sample-app-ecr",
+      "image": "<IMAGE_PLACEHOLDER>",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
