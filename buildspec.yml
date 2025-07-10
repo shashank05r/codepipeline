@@ -20,10 +20,11 @@ phases:
     commands:
       - echo Pushing Docker image...
       - docker push $IMAGE_URI
+      - echo Also tagging and pushing latest...
       - docker tag $IMAGE_URI 498484133733.dkr.ecr.us-east-1.amazonaws.com/sample-app-ecr:latest
       - docker push 498484133733.dkr.ecr.us-east-1.amazonaws.com/sample-app-ecr:latest
       - echo Writing imagedefinitions.json...
-      - printf '[{"name":"DeployToEcsFargateContainerName","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
+      - printf '[{"name":"sample-app-ecr","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
 
 artifacts:
   files:
