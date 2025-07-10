@@ -4,8 +4,8 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 498484133733.dkr.ecr.ap-south-1.amazonaws.com)
-      - IMAGE_URI=498484133733.dkr.ecr.ap-south-1amazonaws.com/sample-app-ecr:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - $(aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 498484133733.dkr.ecr.us-east-1.amazonaws.com)
+      - IMAGE_URI=498484133733.dkr.ecr.us-east-1amazonaws.com/sample-app-ecr:$CODEBUILD_RESOLVED_SOURCE_VERSION
   build:
     commands:
       - echo Building Docker image...
