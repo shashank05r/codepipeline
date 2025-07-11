@@ -3,7 +3,7 @@ const http = require('http');
 const port = 80;
 
 const server = http.createServer((req, res) => {
-  res.end("Hello from ECS Fargate!\n");
+  res.end("Hello from ECS Fargate! Itis new version\n");
 });
 
 server.listen(port, '0.0.0.0', () => {
